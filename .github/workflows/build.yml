@@ -20,7 +20,7 @@ jobs:
       - name: installer
         shell: cmd
         run: |
-          curl .\swift-${{ github.ref_name }}-RELEASE-windows10.exe -L --output installer.exe
+          curl "https://download.swift.org/swift-${{ github.ref_name }}-release/windows10/swift-${{ github.ref_name }}-RELEASE/swift-${{ github.ref_name }}-RELEASE-windows10.exe" -L --output installer.exe
           
       - name: innoextract 
         shell: cmd
