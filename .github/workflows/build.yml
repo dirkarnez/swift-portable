@@ -26,6 +26,10 @@ jobs:
         shell: cmd
         run: |
           installer.exe /passive /quiet /D=%CD%\installation
+
+      - shell: cmd
+        run: |
+          cd /d "C:\Program Files" && dir
           
       - name: Archive Release
         uses: thedoctor0/zip-release@master
