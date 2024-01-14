@@ -25,18 +25,9 @@ jobs:
       - name: innoextract 
         shell: cmd
         run: |
-          installer.exe /passive /quiet /D=%CD%\installation
-
-      - shell: cmd
-        run: |
-          cd /d "C:\Program Files" && dir
-          
-      - name: Archive Release
-        uses: thedoctor0/zip-release@master
-        with:
-          type: 'zip'
-          directory: "installation"
-          filename: "${{ env.targetZip }}"
+          installer.exe /passive /quiet &&^
+          cd /d "C:\Program Files\Swift" &&^
+          7z.exe a "${{ github.workspace }}\${{ env.targetZip }}"
           
       - name: Release prebuilt
         uses: ncipollo/release-action@v1
